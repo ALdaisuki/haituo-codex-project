@@ -1,6 +1,46 @@
-# Current Status - 2026-07-06
+# Current Status - 2026-07-07
 
-## Latest Live Validation - 2026-07-06
+## Latest Data Fix - 2026-07-07
+
+```text
+Current phase: Validation / single-product price-source correction
+
+Product:
+- ASIN: B0D4V7M7D4
+- Amazon URL: https://www.amazon.com/dp/B0D4V7M7D4
+- Target platform/store: 速卖通海外托管 > Halo Home Store
+- Business license group: A1
+
+Root cause:
+- The readonly edit-page preflight used fallback USD 5.89 -> CNY 63.91 because the trusted Amazon displayed-price store had no B0D4V7M7D4 record.
+- This was not a category-evidence problem: runs/aliexpress-evidence-store.json already contains high-confidence Pot Trays evidence for B0D4V7M7D4.
+
+Fix:
+- Added one trusted price record to runs/amazon-price-store.json:
+  B0D4V7M7D4 = Amazon displayed price USD 9.99.
+- Runtime task formula verification computes expected CNY 108.39 from 9.99 x 7 x 1.55.
+
+Verification:
+- Before fix: amazon-price-store status reported missing / amazon_displayed_price_missing / blockers=1.
+- After fix: status trusted=true, formulaOk=true, expectedCnyPrice=108.39, blockers=0.
+- node tools/dxm-automation-core.test.js passed.
+- node tools/aliexpress-evidence-policy.test.js passed.
+
+Boundary:
+- No browser localStorage sync was performed in this step.
+- No Dianxiaomi page operation, field edit, save, move-to-wait-publish, publish, one-click publish, new collection, or new claim was executed.
+- No userscript logic, AGENT.md, TASK.md, or rule document was changed.
+
+Report:
+- runs/first-real-collection-b0d4v7m7d4/price-source-fix-report.md
+
+Next safe gate:
+- Sync the updated price-store record to the browser cache.
+- Rerun readonly edit-page preflight.
+- Continue controlled edit-page fill only with save:false until readonly preflight clears all blockers.
+```
+
+## Previous Live Validation - 2026-07-06
 
 ```text
 Current phase: Validation / single-product real flow staged test

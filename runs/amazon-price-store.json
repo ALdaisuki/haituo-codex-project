@@ -1,6 +1,6 @@
 {
   "schemaVersion": "amazon-price-store-v1",
-  "updatedAt": "2026-07-05T04:34:29.307Z",
+  "updatedAt": "2026-07-07T00:01:19.233Z",
   "records": {
     "B0CZ7F61XN": {
       "asin": "B0CZ7F61XN",
@@ -465,6 +465,24 @@
       },
       "updatedAt": "2026-07-05T04:34:29.307Z",
       "createdAt": "2026-07-05T04:34:29.307Z"
+    },
+    "B0D4V7M7D4": {
+      "asin": "B0D4V7M7D4",
+      "amazonDisplayedPriceUsd": 9.99,
+      "currency": "USD",
+      "source": "manual_verified",
+      "status": "trusted",
+      "amazonUrl": "https://www.amazon.com/dp/B0D4V7M7D4",
+      "evidenceUrl": "https://www.amazon.com/dp/B0D4V7M7D4",
+      "title": "30 Pack Plant Saucer 6 Inches Plant Trays for Pots Plastic Round Drip Trays Flower Pot Saucers Black Planter Water Tray Plant Drainage Tray, Black",
+      "reason": "price_source_corrected_from_controlled_collection_report",
+      "priceRange": {
+        "min": null,
+        "max": null
+      },
+      "amazonOriginalPriceUsd": 9.99,
+      "updatedAt": "2026-07-07T00:01:19.233Z",
+      "createdAt": "2026-07-07T00:01:19.232Z"
     }
   }
 }
